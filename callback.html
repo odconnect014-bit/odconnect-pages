@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ODConnect Connected</title>
+<style>body{font-family:-apple-system,Helvetica,Arial,sans-serif;max-width:680px;margin:48px auto;padding:0 20px;color:#222;line-height:1.5}
+h1{font-size:28px}h2{font-size:18px;margin-top:28px}code{background:#f3f3f3;padding:2px 6px;border-radius:4px}
+nav a{margin-right:16px;color:#2a5db0}footer{margin-top:48px;color:#777;font-size:13px}</style></head>
+<body><nav><a href="/">Home</a><a href="/terms.html">Terms</a><a href="/privacy.html">Privacy</a><a href="/disconnect.html">Disconnect</a></nav>
+
+<h1>Connected</h1>
+<p id="msg">Reading the authorization response&hellip;</p>
+<pre id="out" style="background:#f3f3f3;padding:12px;border-radius:6px;white-space:pre-wrap;word-break:break-all;display:none"></pre>
+<p id="hint" style="display:none">Copy the text above and paste it where the Tool asks for it. This page stores nothing and sends nothing anywhere; the values appear only in your browser.</p>
+<script>
+(function(){var q=new URLSearchParams(location.search);var code=q.get('code'),realm=q.get('realmId'),state=q.get('state'),err=q.get('error');
+var out=document.getElementById('out'),msg=document.getElementById('msg'),hint=document.getElementById('hint');
+if(err){msg.textContent='Intuit returned an error: '+err;return;}
+if(!code){msg.textContent='No authorization code found in this address. Start the connection from the Tool and try again.';return;}
+msg.textContent='Authorization received. Hand this back to the Tool:';out.style.display='block';hint.style.display='block';
+out.textContent='code='+code+'\nrealmId='+(realm||'')+'\nstate='+(state||'');})();
+</script>
+
+<footer>ODConnect &middot; app.odconnect.net &middot; Last updated October 2026</footer></body></html>
